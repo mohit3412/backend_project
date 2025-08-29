@@ -67,7 +67,7 @@ userSchema.methods.generateAccessToken = function(){
             _id: this._id,
             email: this.email,
             username: this.username,
-            fullNmae: this.fullName
+            fullName: this.fullName
         },
         process.env.ACCESS_TOKEN_SCERET,
         {
@@ -85,7 +85,7 @@ userSchema.methods.generateRefereshToken = function(){
         {
             expiresIn: process.env.REFERESH_TOKEN_EXPIRY
         }
-    )
+    ) 
 }
 
 export const User = mongoose.model('User', userSchema)
