@@ -20,11 +20,22 @@ app.use(express.urlencoded({
 app.use(express.static("public"))
 app.use(cookieParser())
 
+app.post('/login',(req, res) => {
+    console.log(req.body)
+})
+
 //routes imports
 import userRouter from './routes/user.routes.js'
 
 //routes declaration
 app.use("/api/v1/users", userRouter)
+
+
+import adminRouter from './routes/admin.routes.js'
+app.use("/api/v1/admin", adminRouter)
+
+import { loginRouter } from './routes/login.routes.js'
+app.use("/api/v1/login", loginRouter)
 
 // http://localhost:5000/api/v1/users/register
 
